@@ -10,6 +10,11 @@ namespace P2FixAnAppDotNetCode.Models
     {
         private List<CartLine> _cartLineList;
 
+        public Cart()
+        {
+            _cartLineList = new List<CartLine>();
+        }
+
         /// <summary>
         /// Read-only property for dispaly only
         /// </summary>
@@ -21,11 +26,6 @@ namespace P2FixAnAppDotNetCode.Models
         /// <returns></returns>
         private List<CartLine> GetCartLineList()
         {
-            if (_cartLineList == null)
-            {
-                _cartLineList = new List<CartLine>();
-            }
-
             return _cartLineList;
         }
 
