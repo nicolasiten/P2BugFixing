@@ -12,18 +12,18 @@ namespace P2FixAnAppDotNetCode.Models
         [BindNever]
         public ICollection<CartLine> Lines { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "ErrorMissingName")]
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "ErrorMissingAddress")]
         public string Address { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "ErrorMissingCity")]
         public string City { get; set; }
 
         public string Zip { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "ErrorMissingCountry")]
         public string Country { get; set; }
 
         [BindNever]
