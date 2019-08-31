@@ -28,20 +28,19 @@ namespace P2FixAnAppDotNetCode.Models.Services
             {
                 case "french":
                     culture = "fr";
-                    CultureInfo.CurrentCulture = new CultureInfo(culture);
                     break;
 
                 case "english":
                     culture = "en";
-                    CultureInfo.CurrentCulture = new CultureInfo(culture);
                     break;
 
                 default:
                     culture = "en";
-                    CultureInfo.CurrentCulture = new CultureInfo(culture);
                     break;
             }
-            
+
+            CultureInfo.CurrentCulture = new CultureInfo(culture);
+
             return culture;
         }
 
