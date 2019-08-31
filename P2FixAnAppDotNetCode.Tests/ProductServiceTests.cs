@@ -22,9 +22,7 @@ namespace P2FixAnAppDotNetCode.Tests
 
             var products = productService.GetAllProducts();
 
-            //Assert.IsType<List<Product>>(products);
-            Assert.IsType<Product[]>(products);
-
+            Assert.IsType<List<Product>>(products);
         }
 
         [Fact]
@@ -46,17 +44,17 @@ namespace P2FixAnAppDotNetCode.Tests
             Assert.Equal(28, products.Where(p => p.Id == 3).First().Stock);
             Assert.Equal(47, products.Where(p => p.Id == 5).First().Stock);
 
-            //do a second run adding items to cart. Resetting the repo and service and cart
+            //do a second run adding items to cart. 
             //will simulate the process from the front end perspective
             //here testing that product stock values are decreasing for each cart checkout, not just a single time
             cart = new Cart();
-            productRepository = new ProductRepository();
-            productService = new ProductService(productRepository, orderRepository);
-            products = productService.GetAllProducts();
+
             cart.AddItem(products.Where(p => p.Id == 1).First(), 1);
             cart.AddItem(products.Where(p => p.Id == 3).First(), 2);
             cart.AddItem(products.Where(p => p.Id == 5).First(), 3);
+
             productService.UpdateProductQuantities(cart);
+
             Assert.Equal(8, products.Where(p => p.Id == 1).First().Stock);
             Assert.Equal(26, products.Where(p => p.Id == 3).First().Stock);
             Assert.Equal(44, products.Where(p => p.Id == 5).First().Stock);
