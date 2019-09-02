@@ -10,12 +10,10 @@ namespace P2FixAnAppDotNetCode.Models.Services
     public class ProductService : IProductService
     {
         private readonly IProductRepository _productRepository;
-        private readonly IOrderRepository _orderRepository;
 
-        public ProductService(IProductRepository productRepository, IOrderRepository orderRepository)
+        public ProductService(IProductRepository productRepository)
         {
             _productRepository = productRepository;
-            _orderRepository = orderRepository;
         }
 
         /// <summary>

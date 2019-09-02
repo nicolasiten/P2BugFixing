@@ -32,8 +32,7 @@ namespace P2FixAnAppDotNetCode.Tests
         {
             ICart cart = new Cart();
             IProductRepository productRepository = new ProductRepository();
-            IOrderRepository orderRepository = new OrderRepository();
-            IProductService productService = new ProductService(productRepository, orderRepository);
+            IProductService productService = new ProductService(productRepository);
 
             IEnumerable<Product> products = productService.GetAllProducts();
             cart.AddItem(products.First(p => p.Id == 2), 2);
@@ -49,8 +48,7 @@ namespace P2FixAnAppDotNetCode.Tests
         {
             ICart cart = new Cart();
             IProductRepository productRepository = new ProductRepository();
-            IOrderRepository orderRepository = new OrderRepository();
-            IProductService productService = new ProductService(productRepository, orderRepository);
+            IProductService productService = new ProductService(productRepository);
 
             IEnumerable<Product> products = productService.GetAllProducts();
             cart.AddItem(products.First(p => p.Id == 1), 1);
