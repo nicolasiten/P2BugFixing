@@ -27,11 +27,11 @@ namespace P2FixAnAppDotNetCode
         {
             services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
             services.AddSingleton<ICart, Cart>();
-            services.AddSingleton<ILanguageService, LanguageService>();
-            services.AddSingleton<IProductService, ProductService>();
+            services.AddTransient<ILanguageService, LanguageService>();
+            services.AddTransient<IProductService, ProductService>();
             services.AddSingleton<IProductRepository, ProductRepository>();
-            services.AddSingleton<IOrderService, OrderService>();
-            services.AddSingleton<IOrderRepository, OrderRepository>();
+            services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddMemoryCache();
             services.AddSession();
             services.AddMvc()
